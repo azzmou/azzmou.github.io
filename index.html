@@ -5,13 +5,12 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Azzeddine Mouchtakiri — Automation & Robotics Engineer</title>
 
-  <meta name="description" content="Portfolio di Azzeddine Mouchtakiri, Automation & Robotics Engineer con esperienza in ROS 2, PLC Siemens, embedded, Edge AI e 5G Academy. Premi e challenge: BIP AI Talent Week 2025, Excellent Reward FIVEC Academy 2025, AI Week (F1-score 0,9790)." />
+  <meta name="description" content="Portfolio di Azzeddine Mouchtakiri, Automation & Robotics Engineer con esperienza in ROS 2, PLC Siemens, embedded, Edge AI e 5G Academy. Premi: BIP AI Talent Week 2025, Excellent Reward FIVEC Academy 2025, AI Week (F1-score 0,9790)." />
   <meta name="author" content="Azzeddine Mouchtakiri">
 
   <meta property="og:title" content="Azzeddine Mouchtakiri — Automation & Robotics Engineer" />
-  <meta property="og:description" content="Robotica, sistemi embedded, AI su edge devices, PLC Siemens, ROS 2, Docker, Gazebo, 5G Academy. Premi e challenge: BIP AI Talent Week 2025, Excellent Reward FIVEC Academy 2025, AI Week (F1-score 0,9790)." />
+  <meta property="og:description" content="Robotica, sistemi embedded, AI su edge devices, PLC Siemens, ROS 2, Docker, Gazebo, 5G Academy. Premi: BIP AI Talent Week 2025, Excellent Reward FIVEC Academy 2025, AI Week (F1-score 0,9790)." />
   <meta property="og:type" content="website" />
-  <!-- OG required / recommended -->
   <meta property="og:url" content="https://TUO-DOMINIO.tld/" />
   <meta property="og:image" content="https://TUO-DOMINIO.tld/assets/og-cover.jpg" />
   <meta property="og:locale" content="it_IT" />
@@ -360,6 +359,8 @@
           <li><strong>Federica.eu</strong> — Python Advanced Certification · 2025</li>
           <li><strong>COMAU</strong> — Industrial Robotics Certification (Patentino) · 2021</li>
           <li><strong>Cisco</strong> — Introduction to IoT · 2017</li>
+          <li><strong>SolidWorks</strong> — CSWA (Certified SolidWorks Associate) · 2021</li>
+          <li><strong>Trinity College London</strong> — ISE III (C1 English Writing) · 2021</li>
         </ul>
         <p class="muted small">
           Altre certificazioni su sicurezza, soft skills, green energy e lingue disponibili nel CV completo.
@@ -375,9 +376,7 @@
         <article class="card">
           <h3>Excellent Reward — FIVEC Academy 2025 (Postgraduate)</h3>
           <p class="muted">Università di Napoli Federico&nbsp;II / CESMA · Dic 2025</p>
-          <p>
-            Riconoscimento per performance tecnica e contributo al progetto (Top 10 su ~30 partecipanti).
-          </p>
+          <p>Riconoscimento per performance tecnica e contributo al progetto (Top 10 su ~30 partecipanti).</p>
         </article>
 
         <article class="card">
@@ -402,7 +401,7 @@
     <section id="languages" class="section">
       <div class="container">
         <h2>Lingue</h2>
-        <p>Italiano (madrelingua) · Arabo (madrelingua) · Inglese (C1, certificato) · Turco (A1) · Francese (A1) · Spagnolo (A1)</p>
+        <p>Italiano (madrelingua) · Arabo (madrelingua) · Inglese (<strong>C1 certificato – Trinity College London</strong>) · Turco (A1) · Francese (A1) · Spagnolo (A1)</p>
       </div>
     </section>
 
@@ -437,12 +436,10 @@
   </footer>
 
   <script>
-    // Anno dinamico
     (function () {
       const yearEl = document.getElementById('year');
       if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-      // Mobile nav toggle
       const toggle = document.querySelector('.menu-toggle');
       const mobileNav = document.getElementById('mobile-nav');
 
@@ -450,12 +447,10 @@
         toggle.addEventListener('click', () => {
           const expanded = toggle.getAttribute('aria-expanded') === 'true';
           toggle.setAttribute('aria-expanded', String(!expanded));
-          // mostra/nasconde il nav mobile (corretto)
           mobileNav.hidden = !expanded;
         });
       }
 
-      // Smooth scroll con gestione accessibilità (focus sul target)
       document.querySelectorAll('a[href^="#"]').forEach(link => {
         link.addEventListener('click', e => {
           const id = link.getAttribute('href');
@@ -475,7 +470,6 @@
             }
             target.focus({ preventScroll: true });
 
-            // chiudi mobile nav se aperto
             if (mobileNav && !mobileNav.hidden) {
               mobileNav.hidden = true;
               if (toggle) toggle.setAttribute('aria-expanded', 'false');
