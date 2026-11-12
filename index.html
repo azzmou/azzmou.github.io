@@ -1,674 +1,601 @@
-<!doctype html>
-<html lang="it">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Azzeddine Mouchtakiri — Automation & Robotics Engineer</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Azzeddine Mouchtakiri — Automation &amp; Robotics Engineer</title>
+<meta name="description" content="Automation and robotics engineer in Berlin. ROS 2, computer vision, PLC and embedded control, validated on real hardware. MSc at Federico II, exchange at TU Berlin.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Sans+Condensed:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F7F8F8;
+  --ink:#16202A;
+  --graphite:#5E6B75;
+  --rule:#C9D1D6;
+  --rule-faint:#E3E8EA;
+  --draft:#0F5C8C;
 
-  <meta name="description" content="Automation and Robotics Engineer con esperienza in embedded AI, real-time control e automazione industriale. ROS 2, TensorFlow Lite, PLC Siemens, 5G Edge. Laureato UniNa Federico II. Premi: BIP AI Talent Week 2025, Excellent Reward FIVEC Academy, F1-score 0.9790." />
-  <meta name="author" content="Azzeddine Mouchtakiri">
-  <meta name="keywords" content="automation engineer, robotics, ROS 2, embedded AI, TensorFlow Lite, PLC Siemens, 5G, edge computing, IoT, MATLAB Simulink, Raspberry Pi, Arduino, industrial automation, Naples Italy, sensor fusion, digital twin, networked robotics">
+  --sans:'IBM Plex Sans',system-ui,sans-serif;
+  --cond:'IBM Plex Sans Condensed','IBM Plex Sans',system-ui,sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,monospace;
 
-  <meta property="og:title" content="Azzeddine Mouchtakiri — Automation & Robotics Engineer" />
-  <meta property="og:description" content="Automation and Robotics Engineer. ROS 2, TensorFlow Lite, PLC Siemens TIA Portal, 5G Academy, Edge AI, Digital Twin. Premi: BIP AI Talent Week, Excellent Reward FIVEC Academy, F1-score 0.9790." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://azzmou.github.io/" />
-  <meta property="og:image" content="https://azzmou.github.io/assets/og-cover.jpg" />
-  <meta property="og:locale" content="it_IT" />
+  --rail:132px;
+  --gap:36px;
+  --measure:66ch;
+}
 
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='16' fill='%230f172a'/><text x='50' y='64' text-anchor='middle' font-size='46' fill='%232dd4bf' font-family='sans-serif'>AM</text></svg>">
-  <link rel="stylesheet" href="assets/styles.css">
+*{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-weight:300;
+  font-size:16.5px;
+  line-height:1.62;
+  font-feature-settings:"kern" 1;
+}
+.wrap{max-width:980px;margin:0 auto;padding:0 28px;}
+
+a{color:var(--draft);text-decoration:none;border-bottom:1px solid var(--rule);}
+a:hover{border-bottom-color:var(--draft);}
+a:focus-visible,button:focus-visible{
+  outline:2px solid var(--draft);outline-offset:3px;border-radius:1px;
+}
+
+.skip{position:absolute;left:-9999px;}
+.skip:focus{
+  left:12px;top:12px;position:fixed;z-index:10;background:var(--ink);
+  color:var(--paper);padding:10px 16px;border:0;
+}
+
+/* ---------------------------------------------------------- masthead */
+.masthead{
+  border-bottom:1px solid var(--ink);
+  padding:18px 0 14px;
+  display:flex;flex-wrap:wrap;gap:14px 26px;
+  align-items:baseline;justify-content:space-between;
+}
+.sig{
+  font-family:var(--cond);font-weight:700;font-size:15px;
+  letter-spacing:.04em;text-transform:uppercase;
+}
+nav ul{display:flex;flex-wrap:wrap;gap:18px;list-style:none;margin:0;padding:0;}
+nav a{
+  font-size:14px;color:var(--graphite);border-bottom:0;
+}
+nav a:hover{color:var(--draft);}
+
+/* ------------------------------------------------------------- hero */
+.hero{padding:72px 0 56px;}
+h1{
+  font-family:var(--cond);
+  font-weight:700;
+  font-size:clamp(42px,8.4vw,86px);
+  line-height:.94;
+  letter-spacing:-.015em;
+  margin:0 0 26px;
+}
+.stance{
+  font-size:clamp(19px,2.4vw,24px);
+  font-weight:300;
+  line-height:1.42;
+  max-width:30ch;
+  margin:0 0 30px;
+}
+.standing{
+  font-size:15px;color:var(--graphite);max-width:52ch;margin:0 0 42px;
+}
+.standing strong{color:var(--ink);font-weight:500;}
+
+/* measurements: the one loud element on the page */
+.measured{
+  border-top:1.5px solid var(--ink);
+  border-bottom:1.5px solid var(--ink);
+  margin:0 0 34px;
+  width:100%;
+  border-collapse:collapse;
+  text-align:left;
+}
+.measured caption{
+  font-family:var(--cond);font-weight:600;font-size:12.5px;
+  letter-spacing:.09em;text-transform:uppercase;color:var(--graphite);
+  text-align:left;padding:0 0 9px;
+}
+.measured th{
+  font-weight:400;font-size:15px;padding:9px 12px 9px 0;
+  border-bottom:1px solid var(--rule-faint);vertical-align:baseline;
+}
+.measured tr:last-child th,.measured tr:last-child td{border-bottom:0;}
+.measured td{
+  font-family:var(--mono);font-weight:500;font-size:15px;
+  font-variant-numeric:tabular-nums;
+  color:var(--draft);
+  padding:9px 0;text-align:right;white-space:nowrap;
+  border-bottom:1px solid var(--rule-faint);
+}
+.measured .src{
+  display:block;font-family:var(--sans);font-weight:300;
+  font-size:12.5px;color:var(--graphite);
+}
+.links{display:flex;flex-wrap:wrap;gap:12px 22px;font-size:15px;}
+
+/* ---------------------------------------------------------- sections */
+section{padding:52px 0;border-top:1px solid var(--rule);}
+h2{
+  font-family:var(--cond);font-weight:600;
+  font-size:13px;letter-spacing:.11em;text-transform:uppercase;
+  color:var(--graphite);margin:0 0 30px;
+}
+h3{
+  font-family:var(--cond);font-weight:700;
+  font-size:21px;line-height:1.2;margin:0 0 3px;letter-spacing:-.005em;
+}
+.lede{max-width:var(--measure);font-size:17.5px;}
+.lede p{margin:0 0 15px;}
+.lede p:last-child{margin-bottom:0;}
+
+/* asymmetric grid: metadata rail, then substance */
+.row{
+  display:grid;
+  grid-template-columns:var(--rail) 1fr;
+  gap:var(--gap);
+  padding:26px 0;
+  border-bottom:1px solid var(--rule-faint);
+}
+.row:last-child{border-bottom:0;}
+.row:first-of-type{padding-top:0;}
+.rail{
+  font-family:var(--mono);font-size:12.5px;line-height:1.75;
+  color:var(--graphite);font-variant-numeric:tabular-nums;
+}
+.rail .where{display:block;}
+.body{max-width:var(--measure);}
+.body p{margin:0 0 11px;}
+.body p:last-child{margin-bottom:0;}
+.org{font-size:15px;color:var(--graphite);margin:0 0 11px;}
+.stack{
+  margin:13px 0 0;font-family:var(--mono);font-size:12.5px;
+  color:var(--graphite);line-height:1.7;
+}
+.stack span::after{content:" · ";color:var(--rule);}
+.stack span:last-child::after{content:"";}
+.repo{margin-top:11px;font-size:14px;}
+
+/* skills: definition list, not cards */
+.skills{display:grid;gap:0;}
+.skill{
+  display:grid;grid-template-columns:var(--rail) 1fr;gap:var(--gap);
+  padding:13px 0;border-bottom:1px solid var(--rule-faint);
+}
+.skill:last-child{border-bottom:0;}
+.skill dt{
+  font-family:var(--cond);font-weight:600;font-size:13px;
+  letter-spacing:.05em;text-transform:uppercase;color:var(--graphite);
+  padding-top:2px;
+}
+.skill dd{margin:0;max-width:var(--measure);}
+.note{color:var(--graphite);font-size:14px;}
+
+/* recognition */
+.rec{
+  display:grid;grid-template-columns:var(--rail) 1fr;gap:var(--gap);
+  padding:13px 0;border-bottom:1px solid var(--rule-faint);
+}
+.rec:last-child{border-bottom:0;}
+.rec .yr{font-family:var(--mono);font-size:12.5px;color:var(--graphite);}
+.rec .what{max-width:var(--measure);}
+.rec .what em{font-style:normal;color:var(--graphite);}
+
+/* contact */
+.contact-grid{
+  display:grid;grid-template-columns:var(--rail) 1fr;gap:var(--gap);
+}
+.contact-grid dt{
+  font-family:var(--mono);font-size:12.5px;color:var(--graphite);
+  padding:7px 0;
+}
+.contact-grid dd{margin:0;padding:7px 0;}
+
+footer{
+  border-top:1px solid var(--ink);padding:22px 0 60px;
+  font-size:13px;color:var(--graphite);
+  display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-between;
+}
+
+@media (max-width:720px){
+  :root{--rail:auto;--gap:7px;}
+  .row,.skill,.rec,.contact-grid{grid-template-columns:1fr;}
+  .rail{display:flex;flex-wrap:wrap;gap:0 14px;}
+  .rail .where::before{content:"";}
+  h1{line-height:1.02;}
+  h1 br{display:none;}
+  .hero{padding:48px 0 38px;}
+  section{padding:40px 0;}
+  .measured th{font-size:14px;}
+  .measured td{font-size:14px;}
+}
+</style>
 </head>
-
 <body>
-  <a class="skip-link" href="#top">Vai al contenuto principale</a>
 
-  <header class="site-header">
-    <div class="container header-inner">
-      <a href="#top" class="brand">
-        <span class="brand-initials" aria-hidden="true">AM</span>
-        <span class="brand-text">
-          <span class="brand-name">Azzeddine Mouchtakiri</span>
-          <span class="brand-role">Automation & Robotics Engineer</span>
-        </span>
-      </a>
+<a class="skip" href="#main">Skip to content</a>
 
-      <nav class="main-nav" aria-label="Navigazione principale" role="navigation">
-        <a href="#about">Profilo</a>
-        <a href="#skills">Competenze</a>
-        <a href="#projects">Progetti</a>
-        <a href="#experience">Esperienza</a>
-        <a href="#education">Formazione</a>
-        <a href="#awards">Riconoscimenti</a>
-        <a href="#certifications">Certificazioni</a>
-        <a href="#contact" class="nav-cta">Contatti</a>
-      </nav>
+<div class="wrap">
 
-      <button class="menu-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Apri/chiudi menu">
-        <span class="sr-only">Apri/chiudi navigazione</span>
-        ☰
-      </button>
-    </div>
-
-    <nav id="mobile-nav" class="mobile-nav" hidden aria-label="Navigazione mobile" role="navigation">
-      <a href="#about">Profilo</a>
-      <a href="#skills">Competenze</a>
-      <a href="#projects">Progetti</a>
-      <a href="#experience">Esperienza</a>
-      <a href="#education">Formazione</a>
-      <a href="#awards">Riconoscimenti</a>
-      <a href="#certifications">Certificazioni</a>
-      <a href="#languages">Lingue</a>
-      <a href="#contact">Contatti</a>
+  <header class="masthead">
+    <div class="sig">Azzeddine Mouchtakiri</div>
+    <nav aria-label="Sections">
+      <ul>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
     </nav>
   </header>
 
-  <main id="top" tabindex="-1" aria-label="Contenuto principale">
-    <!-- HERO -->
-    <section class="hero">
-      <div class="container hero-inner">
-        <div class="hero-left">
-          <p class="hero-kicker">Automation · Robotics · Edge AI · Industry 4.0</p>
-          <h1>Automation and Robotics Engineer</h1>
-          <p class="hero-lead">
-            Practical experience in <strong>embedded AI</strong>, <strong>real-time control</strong>, and <strong>industrial automation</strong>.<br>
-            Skilled in <strong>ROS 2</strong>, <strong>TensorFlow Lite</strong>, and <strong>5G Edge architectures</strong> for autonomous robotic systems.<br>
-          </p>
-          <p class="hero-highlight">
-            Completed the <strong>5G Academy</strong> at Università di Napoli Federico II<br>
-            (TIM, Nokia, Fastweb+Vodafone, PagoPA) developing a <strong>drone–robot coordination PoC</strong>.
-          </p>
-          <p class="hero-highlight">
-            Graduated with a thesis on a <strong>Smart Mobile Base</strong> for real-time object tracking using<br>
-            AI-based vision and Raspberry Pi and Arduino control.
-          </p>
-          <p class="hero-focus">
-            Focused on <strong>system integration</strong>, <strong>sensor fusion</strong>, and <strong>low-latency AI</strong><br>
-            for Industry 4.0 environments.
-          </p>
+  <main id="main">
 
-          <ul class="hero-contact">
-            <li><strong>📍</strong> Napoli, Italia</li>
-            <li><strong>📞</strong> <a href="tel:+393517996196">+39 351 799 6196</a></li>
-            <li><strong>✉️</strong> <a href="mailto:azzmou31.work@gmail.com">azzmou31.work@gmail.com</a></li>
-            <li class="hero-social">
-              <strong>🔗</strong>
-              <a href="https://linkedin.com/in/azzeddine-m-09bb59175" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-              <span aria-hidden="true">·</span>
-              <a href="https://github.com/azzmou" target="_blank" rel="noopener noreferrer">GitHub</a>
-            </li>
-          </ul>
+    <div class="hero">
+      <h1>Automation&nbsp;&amp;<br>Robotics Engineer</h1>
 
-          <div class="hero-actions">
-            <a class="btn primary" href="resume.pdf" download>📄 Scarica CV (PDF)</a>
-            <a class="btn ghost" href="#projects">🚀 Guarda i progetti</a>
-          </div>
-        </div>
+      <p class="stance">I build control and perception systems that run on real
+      hardware, not only in simulation.</p>
 
-        <aside class="hero-right" aria-labelledby="profile-card-title">
-          <div class="card profile-card">
-            <h2 id="profile-card-title">💼 In breve</h2>
-            <dl class="info-list">
-              <div class="info-item">
-                <dt>Ruolo attuale</dt>
-                <dd>MSc Automation & Robotics Engineering (in corso)</dd>
-              </div>
-              <div class="info-item">
-                <dt>Robotica</dt>
-                <dd>ROS 2, Gazebo, COMAU Industrial Robotics</dd>
-              </div>
-              <div class="info-item">
-                <dt>Embedded & AI</dt>
-                <dd>Raspberry Pi, Arduino, TensorFlow Lite, OpenCV</dd>
-              </div>
-              <div class="info-item">
-                <dt>Automazione</dt>
-                <dd>PLC Siemens TIA Portal, Codesys, Ladder, ST, SFC</dd>
-              </div>
-              <div class="info-item">
-                <dt>5G & Edge</dt>
-                <dd>5G Academy, Edge AI, Digital Twin, Docker, MQTT</dd>
-              </div>
-              <div class="info-item">
-                <dt>Simulazione</dt>
-                <dd>MATLAB/Simulink, ADAMS, Control Systems</dd>
-              </div>
-            </dl>
-          </div>
+      <p class="standing">Based in <strong>Berlin</strong>, on an Erasmus+
+      exchange at TU Berlin while finishing an MSc in Automation and Robotics
+      at Università di Napoli Federico II. Open to working-student and
+      internship roles in robotics, automation and embedded AI.</p>
 
-          <div class="card highlight-card">
-            <p class="highlight-title">🎯 Progetto attuale</p>
-            <p class="highlight-text">
-              Drone–Robot Communication Platform (5G Academy):<br>
-              Sviluppo di un PoC per coordinamento a bassa latenza tra UAV e UGV su rete 5G.<br>
-              Architettura: <strong>ROS 2</strong>, <strong>Gazebo</strong>, <strong>Docker</strong>.<br>
-              Latenza misurata: <strong>&lt;50 ms</strong> in ambienti edge–cloud.<br>
-              Keywords: <strong>real-time systems</strong>, <strong>networked robotics</strong>, <strong>edge AI</strong>, <strong>digital twin</strong>.
-            </p>
-          </div>
-        </aside>
+      <table class="measured">
+        <caption>Measured, not claimed</caption>
+        <tbody>
+          <tr>
+            <th scope="row">UAV to UGV link latency
+              <span class="src">PoC-1 Skyrover, 5G edge–cloud</span></th>
+            <td>&lt; 50 ms</td>
+          </tr>
+          <tr>
+            <th scope="row">Visual tracking loop
+              <span class="src">Smart Mobile Base, Raspberry Pi</span></th>
+            <td>100–400 ms</td>
+          </tr>
+          <tr>
+            <th scope="row">Classification F1 score
+              <span class="src">AI Talent Week 2025 challenge</span></th>
+            <td>0.979</td>
+          </tr>
+          <tr>
+            <th scope="row">Standing in cohort
+              <span class="src">5G Academy, Federico II</span></th>
+            <td>top 10 of 30</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p class="links">
+        <a href="https://github.com/azzmou">github.com/azzmou</a>
+        <a href="https://www.linkedin.com/in/azzeddine-m-09bb59175">LinkedIn</a>
+        <a href="mailto:azzmou31.work@gmail.com">azzmou31.work@gmail.com</a>
+      </p>
+    </div>
+
+    <section id="about" aria-labelledby="about-h">
+      <h2 id="about-h">Background</h2>
+      <div class="lede">
+        <p>My work sits where software meets a physical machine. I write ROS 2
+        and C++ for mobile robots and manipulators, program Siemens PLCs for
+        industrial lines, and I am comfortable with an oscilloscope and a
+        soldering iron when the problem turns out to be in the hardware.</p>
+        <p>That last part is not an afterthought. Before engineering I spent
+        seven years repairing phones at board level, self-employed and
+        alongside full-time study. It taught me to find a fault by measurement
+        rather than by guessing, which is the same habit a robot needs when the
+        simulation works and the real thing does not.</p>
       </div>
     </section>
 
-    <!-- ABOUT -->
-    <section id="about" class="section">
-      <div class="container two-col">
-        <div>
-          <h2>Profilo</h2>
-          <p>
-            <strong>Automation and Robotics Engineer</strong> with practical experience in <strong>embedded AI</strong>,
-            <strong>real-time control</strong>, and <strong>industrial automation</strong>. Skilled in <strong>ROS 2</strong>,
-            <strong>TensorFlow Lite</strong>, and <strong>5G Edge architectures</strong> for autonomous robotic systems.
-          </p>
-          <p>
-            Completed the <strong>5G Academy</strong> at Università di Napoli Federico II
-            (TIM, Nokia, Fastweb+Vodafone, PagoPA) developing a <strong>drone–robot coordination PoC</strong>.
-            Graduated with a thesis on a <strong>Smart Mobile Base</strong> for real-time object tracking using
-            AI-based vision and Raspberry Pi and Arduino control.
-          </p>
-          <p>
-            Focused on <strong>system integration</strong>, <strong>sensor fusion</strong>, and
-            <strong>low-latency AI</strong> for Industry 4.0 environments.
-          </p>
+    <section id="projects" aria-labelledby="projects-h">
+      <h2 id="projects-h">Selected projects</h2>
+
+      <article class="row">
+        <div class="rail">2025
+          <span class="where">team of 7</span>
+          <span class="where">lead: robot &amp; integration</span>
         </div>
-        <div class="about-aside">
-          <div class="pill-list" aria-hidden="false">
-            <span class="pill">Real-time systems</span>
-            <span class="pill">Networked robotics</span>
-            <span class="pill">Edge AI</span>
-            <span class="pill">Digital Twin</span>
-            <span class="pill">Sensor Fusion</span>
-            <span class="pill">Industry 4.0</span>
-            <span class="pill">Computer Vision</span>
-            <span class="pill">System Integration</span>
-          </div>
+        <div class="body">
+          <h3>PoC-1 Skyrover</h3>
+          <p class="org">Drone–rover coordination over 5G · 5G Academy,
+          Università di Napoli Federico II</p>
+          <p>A drone and a ground rover working as one system. The drone's pose
+          becomes navigation goals for the rover through a ROS 2 bridge that
+          smooths the signal and applies hysteresis, so the rover is not
+          chasing every twitch of the estimate.</p>
+          <p>I wrote a custom A* planner and costmap layer for Nav2, and a PPO
+          reinforcement-learning module for rover navigation. We validated in
+          Gazebo and Unreal Engine, then put it on a physical rover and drone,
+          which is where the interesting failures showed up.</p>
+          <p class="stack"><span>ROS 2 Humble</span><span>C++</span><span>Python</span><span>Nav2</span><span>MAVROS2</span><span>ArduPilot SITL</span><span>Gazebo</span><span>Docker</span><span>YOLOv11</span><span>LiDAR</span></p>
+          <p class="repo"><a href="https://github.com/azzmou/-PoC1-Skyrover">Repository and full report</a></p>
         </div>
+      </article>
+
+      <article class="row">
+        <div class="rail">2026
+          <span class="where">C++98</span>
+        </div>
+        <div class="body">
+          <h3>robokin</h3>
+          <p class="org">Manipulator kinematics library · personal project</p>
+          <p>Forward kinematics, geometric Jacobian, singularity analysis and
+          trajectory generation for serial manipulators, with no external
+          dependencies: the matrix algebra and the Jacobi eigensolver are
+          written out rather than imported, so every step can be checked.</p>
+          <p>The Jacobian is implemented twice, analytically and by central
+          differences, and the test suite checks one against the other. The
+          demo walks a PUMA 560 through both its boundary and wrist
+          singularities.</p>
+          <p class="stack"><span>C++98</span><span>CMake</span><span>Denavit–Hartenberg</span><span>damped least squares</span><span>Jacobi eigensolver</span></p>
+          <p class="repo"><a href="https://github.com/azzmou/robokin">Repository</a></p>
+        </div>
+      </article>
+
+      <article class="row">
+        <div class="rail">2025
+          <span class="where">BSc thesis</span>
+        </div>
+        <div class="body">
+          <h3>Smart Mobile Base AI</h3>
+          <p class="org">Autonomous mobile base with embedded vision ·
+          Università di Napoli Federico II</p>
+          <p>A mobile robot that tracks an object in real time on low-cost edge
+          hardware. I implemented tracking twice — a learned EfficientDet Lite
+          model and classical HSV segmentation — so the two could be compared
+          on the same frames under the same timing budget.</p>
+          <p>Running inference on a Raspberry Pi meant the loop time, 100 to
+          400 ms depending on mode, drove most of the design decisions.</p>
+          <p class="stack"><span>Python</span><span>ROS 2</span><span>OpenCV</span><span>TensorFlow Lite</span><span>Raspberry Pi</span><span>Arduino</span><span>Linux</span></p>
+          <p class="repo"><a href="https://github.com/azzmou/smart-mobile-base-ai">Repository</a></p>
+        </div>
+      </article>
+
+      <article class="row">
+        <div class="rail">2026
+          <span class="where">iOS</span>
+        </div>
+        <div class="body">
+          <h3>CarePlus</h3>
+          <p class="org">Alzheimer care coordination app · Apple Foundation
+          Academy</p>
+          <p>A shared space where someone with Alzheimer's and their carers can
+          organise daily activities and keep notes. I was the sole developer
+          and repository maintainer: app architecture, every feature, and the
+          backend with authentication and data synchronisation.</p>
+          <p class="stack"><span>Swift</span><span>SwiftUI</span><span>Supabase</span><span>Agile</span></p>
+          <p class="repo"><a href="https://github.com/azzmou/CarePlus">Repository</a></p>
+        </div>
+      </article>
+    </section>
+
+    <section id="skills" aria-labelledby="skills-h">
+      <h2 id="skills-h">Skills</h2>
+      <dl class="skills">
+        <div class="skill">
+          <dt>Robotics</dt>
+          <dd>ROS 2 Humble, Nav2, Gazebo, SLAM, MAVROS2, sensor fusion,
+          COMAU industrial robotics</dd>
+        </div>
+        <div class="skill">
+          <dt>Programming</dt>
+          <dd>C++ (strongest), Python, Linux, Git, Docker, Kubernetes</dd>
+        </div>
+        <div class="skill">
+          <dt>Industrial automation</dt>
+          <dd>Siemens TIA Portal and Step 7, Codesys, Ladder, Structured Text,
+          SFC, electrical drives, pneumatics</dd>
+        </div>
+        <div class="skill">
+          <dt>Perception &amp; edge AI</dt>
+          <dd>OpenCV, TensorFlow Lite, reinforcement learning, Raspberry Pi,
+          Arduino, embedded inference</dd>
+        </div>
+        <div class="skill">
+          <dt>Control &amp; simulation</dt>
+          <dd>MATLAB/Simulink, ADAMS, control systems, real-time systems,
+          signal processing</dd>
+        </div>
+        <div class="skill">
+          <dt>Design &amp; workshop</dt>
+          <dd>SolidWorks, AutoCAD, CNC programming, turning, milling, welding,
+          board-level electronics</dd>
+        </div>
+        <div class="skill">
+          <dt>Languages</dt>
+          <dd>Italian and Arabic native · English C1 · German A1, improving in
+          Berlin · Turkish basic</dd>
+        </div>
+      </dl>
+    </section>
+
+    <section id="experience" aria-labelledby="experience-h">
+      <h2 id="experience-h">Experience</h2>
+
+      <article class="row">
+        <div class="rail">2019–2026
+          <span class="where">Italy</span>
+        </div>
+        <div class="body">
+          <h3>Electronics repair technician</h3>
+          <p class="org">Self-employed</p>
+          <p>Seven years of board-level repair on mobile devices: logic boards,
+          power circuits, displays and connectors, plus firmware recovery and
+          software troubleshooting. I ran the whole thing — diagnosis, quoting,
+          repair, delivery — alongside full-time engineering studies.</p>
+        </div>
+      </article>
+
+      <article class="row">
+        <div class="rail">2021
+          <span class="where">Atripalda, IT</span>
+        </div>
+        <div class="body">
+          <h3>Automation engineering intern</h3>
+          <p class="org">Delta Controlli Srl</p>
+          <p>Wrote and tested PLC programs in Siemens TIA Portal and Step 7,
+          and supported system integration and on-site troubleshooting across
+          projects from small private installations to large industrial lines.</p>
+        </div>
+      </article>
+
+      <article class="row">
+        <div class="rail">2018–2019
+          <span class="where">Cervinara, IT</span>
+        </div>
+        <div class="body">
+          <h3>Electronic technician</h3>
+          <p class="org">Delta Elettronica Srl</p>
+          <p>Diagnostics and repair of electronic devices, with direct
+          technical support to customers.</p>
+        </div>
+      </article>
+    </section>
+
+    <section id="education" aria-labelledby="education-h">
+      <h2 id="education-h">Education</h2>
+
+      <article class="row">
+        <div class="rail">2026–2027
+          <span class="where">Berlin, DE</span>
+        </div>
+        <div class="body">
+          <h3>Erasmus+ exchange, TU Berlin</h3>
+          <p class="org">Technische Universität Berlin</p>
+          <p>Currently taking State Estimation and Robotics, AI and Robotics,
+          Robotics Project (AICON) and Robotics with the PUMA manipulator.</p>
+        </div>
+      </article>
+
+      <article class="row">
+        <div class="rail">2025–2027
+          <span class="where">Naples, IT</span>
+        </div>
+        <div class="body">
+          <h3>MSc, Automation and Robotics Engineering</h3>
+          <p class="org">Università di Napoli Federico II</p>
+          <p>Foundations of robotics, real-time systems, nonlinear dynamics and
+          control, advanced control systems, electrical drives, operations
+          research.</p>
+        </div>
+      </article>
+
+      <article class="row">
+        <div class="rail">2025
+          <span class="where">Naples, IT</span>
+        </div>
+        <div class="body">
+          <h3>5G Academy, post-graduate programme</h3>
+          <p class="org">Università di Napoli Federico II, with TIM, Nokia,
+          Fastweb+Vodafone, PagoPA and HPE</p>
+          <p>5G networks, edge AI, cloud systems, containerised architectures
+          and IoT, built around the Skyrover proof of concept.</p>
+        </div>
+      </article>
+
+      <article class="row">
+        <div class="rail">2021–2025
+          <span class="where">Naples, IT</span>
+        </div>
+        <div class="body">
+          <h3>BSc, Automation Engineering</h3>
+          <p class="org">Università di Napoli Federico II</p>
+          <p>Thesis on the Smart Mobile Base. Erasmus+ semester at Özyeğin
+          University, Istanbul, including a biomechanical muscle-dynamics model
+          in MATLAB/Simulink.</p>
+        </div>
+      </article>
+
+      <article class="row">
+        <div class="rail">2016–2021
+          <span class="where">Benevento, IT</span>
+        </div>
+        <div class="body">
+          <h3>Technical diploma, mechanics and mechatronics</h3>
+          <p class="org">ITIS “G. B. Lucarelli” · final grade 100/100</p>
+          <p>Mechanical workshop and mechatronics: CAD, machining, CNC and PLC
+          programming, pneumatics and hydraulics. Built mechanical prototypes
+          and robotic arms.</p>
+        </div>
+      </article>
+    </section>
+
+    <section id="recognition" aria-labelledby="recognition-h">
+      <h2 id="recognition-h">Recognition and certification</h2>
+
+      <div class="rec">
+        <div class="yr">2025</div>
+        <div class="what"><strong>Excellent Reward, 5G Academy</strong>
+        <em>— Federico II CeSMA, awarded to the top 10 of roughly 30
+        participants</em></div>
+      </div>
+      <div class="rec">
+        <div class="yr">2025</div>
+        <div class="what"><strong>AI Talent Week, VGen</strong>
+        <em>— classification challenge, F1 score 0.979, final mark 28/30</em></div>
+      </div>
+      <div class="rec">
+        <div class="yr">2025</div>
+        <div class="what"><strong>Kubernetes (LFS158)</strong>
+        <em>— The Linux Foundation</em></div>
+      </div>
+      <div class="rec">
+        <div class="yr">2025</div>
+        <div class="what"><strong>Neo4j Certified Professional</strong></div>
+      </div>
+      <div class="rec">
+        <div class="yr">2024</div>
+        <div class="what"><strong>Automotive electronics</strong>
+        <em>— Özyeğin University</em></div>
+      </div>
+      <div class="rec">
+        <div class="yr">2021</div>
+        <div class="what"><strong>Industrial robotics certification</strong>
+        <em>— COMAU</em></div>
+      </div>
+      <div class="rec">
+        <div class="yr">2021</div>
+        <div class="what"><strong>SolidWorks</strong> <em>— INDIRE</em></div>
       </div>
     </section>
 
-    <!-- SKILLS -->
-    <section id="skills" class="section section-alt">
-      <div class="container">
-        <h2>Competenze Tecniche</h2>
-        <div class="grid skills-grid">
-          <article class="card" aria-labelledby="skill-robotics">
-            <h3 id="skill-robotics">⚙️ Robotics & Automation</h3>
-            <p><strong>ROS 2</strong>, <strong>Gazebo</strong>, <strong>PLC Siemens (TIA Portal)</strong>, <strong>Codesys</strong>, <strong>Ladder</strong>, <strong>Structured Text</strong>, <strong>SFC</strong></p>
-          </article>
-          
-          <article class="card" aria-labelledby="skill-embedded">
-            <h3 id="skill-embedded">🤖 Embedded & AI</h3>
-            <p><strong>Raspberry Pi</strong>, <strong>TensorFlow Lite</strong>, <strong>OpenCV</strong>, <strong>Docker</strong>, <strong>MQTT</strong>, <strong>Edge AI</strong></p>
-          </article>
-          
-          <article class="card" aria-labelledby="skill-control">
-            <h3 id="skill-control">📊 Control & Simulation</h3>
-            <p><strong>MATLAB/Simulink</strong>, <strong>Sensor Fusion</strong>, <strong>Control Systems</strong>, <strong>Mechatronics</strong></p>
-          </article>
-          
-          <article class="card" aria-labelledby="skill-software">
-            <h3 id="skill-software">💻 Software Development</h3>
-            <p><strong>C++</strong>, <strong>Python</strong>, <strong>Git</strong>, <strong>Linux</strong>, <strong>Agile Workflow</strong>, <strong>CI/CD</strong> (basic)</p>
-          </article>
-          
-          <article class="card" aria-labelledby="skill-networking">
-            <h3 id="skill-networking">🌐 Networking & Cloud</h3>
-            <p><strong>5G Architecture</strong>, <strong>IoT Integration</strong>, <strong>Edge Computing</strong>, <strong>Docker Containers</strong></p>
-          </article>
-          
-          <article class="card" aria-labelledby="skill-tools">
-            <h3 id="skill-tools">🛠️ CAD & Design</h3>
-            <p><strong>SolidWorks (CSWA)</strong>, <strong>AutoCAD</strong>, <strong>ADAMS</strong>, Prototipazione meccanica</p>
-          </article>
-        </div>
-      </div>
+    <section id="contact" aria-labelledby="contact-h">
+      <h2 id="contact-h">Contact</h2>
+      <dl class="contact-grid">
+        <dt>Email</dt>
+        <dd><a href="mailto:azzmou31.work@gmail.com">azzmou31.work@gmail.com</a></dd>
+        <dt>Phone</dt>
+        <dd>+39 351 799 6196</dd>
+        <dt>Location</dt>
+        <dd>Berlin, Germany</dd>
+        <dt>Code</dt>
+        <dd><a href="https://github.com/azzmou">github.com/azzmou</a></dd>
+        <dt>LinkedIn</dt>
+        <dd><a href="https://www.linkedin.com/in/azzeddine-m-09bb59175">azzeddine-m-09bb59175</a></dd>
+      </dl>
     </section>
 
-    <!-- PROJECTS -->
-    <section id="projects" class="section">
-      <div class="container">
-        <h2>Progetti Selezionati</h2>
-        <div class="grid project-grid">
-          
-          <article class="card project">
-            <h3>🚁 Drone–Robot Communication Platform (5G Academy)</h3>
-            <p class="muted">Università di Napoli Federico II, Napoli · 2025</p>
-            <p>
-              Developed a <strong>Proof of Concept</strong> for low-latency coordination between UAV and UGV over 5G.
-              Architecture based on <strong>ROS 2</strong>, <strong>Gazebo simulation</strong> and <strong>Docker containerization</strong>.
-              Measured communication latency under <strong>50 ms</strong> in edge–cloud environments.
-            </p>
-            <p class="tags">
-              <span class="tag">ROS 2</span>
-              <span class="tag">Gazebo</span>
-              <span class="tag">Docker</span>
-              <span class="tag">5G</span>
-              <span class="tag">Edge AI</span>
-              <span class="tag">Digital Twin</span>
-              <span class="tag">Real-time systems</span>
-              <span class="tag">Networked robotics</span>
-            </p>
-          </article>
-
-          <article class="card project">
-            <h3>🤖 Smart Mobile Base AI — Thesis Project (Automation Engineering BSc)</h3>
-            <p class="muted">Università di Napoli Federico II, Napoli · 2025</p>
-            <p>
-              Design and implementation of an autonomous mobile base integrating <strong>AI-based visual tracking</strong>
-              and <strong>embedded control</strong>. Developed on <strong>Raspberry Pi</strong> and <strong>Arduino</strong>
-              using <strong>TensorFlow Lite</strong> and <strong>OpenCV</strong>. Implemented dual-mode tracking
-              (<strong>HSV</strong> and <strong>EfficientDet Lite</strong>) with latency between <strong>100–400 ms</strong>.
-            </p>
-            <p class="tags">
-              <span class="tag">Python</span>
-              <span class="tag">ROS 2</span>
-              <span class="tag">Linux</span>
-              <span class="tag">TensorFlow Lite</span>
-              <span class="tag">OpenCV</span>
-              <span class="tag">HSV tracking</span>
-              <span class="tag">EfficientDet Lite</span>
-              <span class="tag">Serial communication</span>
-              <span class="tag">Docker</span>
-            </p>
-            <a href="https://github.com/azzmou/smart-mobile-base-ai" target="_blank" rel="noopener noreferrer" class="project-link">
-              <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
-                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
-              </svg>
-              GitHub: github.com/azzmou/smart-mobile-base-ai
-            </a>
-          </article>
-
-          <article class="card project">
-            <h3>🏃 Muscle Dynamics Simulation (Erasmus)</h3>
-            <p class="muted">Özyeğin University, Istanbul · 2024</p>
-            <p>
-              Developed a biomechanical model in <strong>MATLAB/Simulink</strong> for analysis and visualization
-              of muscle contraction dynamics. Applied <strong>control theory</strong> and <strong>system modeling</strong>
-              techniques in a multidisciplinary environment.
-            </p>
-            <p class="tags">
-              <span class="tag">MATLAB/Simulink</span>
-              <span class="tag">Biomechanics</span>
-              <span class="tag">Control theory</span>
-              <span class="tag">Dynamic modeling</span>
-            </p>
-          </article>
-
-          <article class="card project">
-            <h3>🦾 Braccio Robotico Bluetooth — Progetto Maturità</h3>
-            <p class="muted">ITIS "G.B. Lucarelli" · 2021</p>
-            <p>
-              Final project: robotic arm controlled via Bluetooth (<strong>HC-05</strong>) using <strong>Arduino</strong>.
-              Developed custom Android app for remote control and movement sequence programming.
-            </p>
-            <p class="tags">
-              <span class="tag">Arduino</span>
-              <span class="tag">Bluetooth HC-05</span>
-              <span class="tag">Android</span>
-              <span class="tag">Robotics</span>
-            </p>
-          </article>
-
-          <article class="card project">
-            <h3>🌱 Generatore di Idrogeno — Green Energy (MIUR-PON)</h3>
-            <p class="muted">Progetto MIUR-PON · 2019</p>
-            <p>
-              Hydrogen energy prototype oriented to sustainability, developed within the Green Energy project
-              funded by MIUR.
-            </p>
-            <p class="tags">
-              <span class="tag">Green Energy</span>
-              <span class="tag">Sustainability</span>
-              <span class="tag">Hydrogen</span>
-              <span class="tag">Prototyping</span>
-            </p>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- EXPERIENCE -->
-    <section id="experience" class="section section-alt">
-      <div class="container">
-        <h2>Esperienze Professionali</h2>
-        <div class="timeline">
-          
-          <article class="timeline-item">
-            <time datetime="2021">2021</time>
-            <h3>Intern — Automation Engineering</h3>
-            <p class="company">Delta Controlli Srl · Atripalda (AV)</p>
-            <p>
-              Developed and tested PLC programs using <strong>Siemens TIA Portal</strong> and <strong>Step 7</strong>.
-              Supported system integration and on-site troubleshooting; gained insight into industrial automation processes.
-            </p>
-            <p class="tags">
-              <span class="tag">PLC</span>
-              <span class="tag">Siemens TIA Portal</span>
-              <span class="tag">Step 7</span>
-              <span class="tag">System integration</span>
-              <span class="tag">Troubleshooting</span>
-            </p>
-          </article>
-
-          <article class="timeline-item">
-            <time datetime="2018">2018</time>&nbsp;–&nbsp;<time datetime="2019">2019</time>
-            <h3>Electronic Technician</h3>
-            <p class="company">Delta Elettronica Srl · Cervinara (AV)</p>
-            <p>
-              Performed diagnostics and repair of electronic devices; provided technical customer support.
-            </p>
-            <p class="tags">
-              <span class="tag">Electronics</span>
-              <span class="tag">Diagnostics</span>
-              <span class="tag">Repair</span>
-              <span class="tag">Customer support</span>
-            </p>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- EDUCATION -->
-    <section id="education" class="section">
-      <div class="container">
-        <h2>Formazione</h2>
-        <div class="grid edu-grid">
-          
-          <article class="card">
-            <h3>🎓 MSc in Automation and Robotics Engineering</h3>
-            <p><strong>Università di Napoli Federico II</strong> · Napoli · 2025 (expected)</p>
-            <p class="muted">
-              Advanced master's program focused on control systems, mobile robotics, industrial automation,
-              and hardware–software integration for Industry 4.0.
-            </p>
-          </article>
-
-          <article class="card">
-            <h3>📡 5G Academy (Post-Laurea)</h3>
-            <p><strong>Università di Napoli Federico II</strong> · Napoli · 2025 (completed)</p>
-            <p class="muted">
-              Advanced program in 5G, Edge AI, Cloud Systems, and IoT architectures. Developed a 5G-based
-              drone–robot communication PoC as part of the national Restart program (PNRR).
-              <br>Partnership with <strong>TIM</strong>, <strong>Nokia</strong>, <strong>Fastweb+Vodafone</strong>, <strong>PagoPA</strong>.
-            </p>
-          </article>
-
-          <article class="card">
-            <h3>🍎 Foundation Apple Academy</h3>
-            <p><strong>Apple Developer Academy</strong> · Napoli · Gennaio–Febbraio 2025 (~1 mese)</p>
-            <p class="muted">
-              Intensive program focused on iOS development, <strong>Human-Centered Design</strong>, and
-              multidisciplinary teamwork. <strong>Team Project</strong>: design and development of a mobile
-              app for cognitive support for Alzheimer's patients, with special attention to usability,
-              accessibility, and interaction simplicity.
-            </p>
-          </article>
-
-          <article class="card">
-            <h3>🌍 Erasmus+ in Electronic Engineering</h3>
-            <p><strong>Özyeğin University</strong> · Istanbul, Turkey · 2024 (Jan–Jun)</p>
-            <p class="muted">
-              Six-month academic exchange focused on Electronic Engineering and dynamic system simulation.
-              Developed a MATLAB/Simulink project on muscle contraction modeling and control for biomechanical analysis.
-            </p>
-          </article>
-
-          <article class="card">
-            <h3>🎓 BSc in Automation Engineering</h3>
-            <p><strong>Università di Napoli Federico II</strong> · Napoli · 2021–2025</p>
-            <p class="muted">
-              Bachelor's degree with courses in automatic control, robotics, electronics, mechatronics, and electrical systems.
-              <br><strong>Thesis</strong>: Design of a Smart Mobile Base with embedded vision AI for object tracking and control.
-            </p>
-          </article>
-
-          <article class="card">
-            <h3>🔧 Diploma in Meccatronica ed Energia</h3>
-            <p><strong>ITIS "G. B. Lucarelli"</strong> · Benevento · 2016–2021</p>
-            <p class="muted">
-              Technical high school diploma in Mechatronics and Energy.
-              <br><strong>Final project</strong>: robotic arm controlled via smartphone (Bluetooth HC-05, Arduino).
-              <br><strong>Certifications obtained</strong>: COMAU Robotics License, SolidWorks CSWA, AutoCAD, Cisco IoT.
-            </p>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- AWARDS / EXTRA -->
-    <section id="awards" class="section section-alt">
-      <div class="container">
-        <h2>Riconoscimenti</h2>
-
-        <article class="card">
-          <h3>🏆 Excellent Reward — FIVEC Academy 2025 (Postgraduate)</h3>
-          <p class="muted">Università di Napoli Federico II / CESMA · Dicembre 2025</p>
-          <p>
-            Recognition for <strong>technical performance</strong> and <strong>project contribution</strong>
-            in the 5G Academy. Ranked in the <strong>Top 10</strong> out of ~30 participants in the national
-            post-graduate Restart program (PNRR).
-          </p>
-        </article>
-
-        <article class="card">
-          <h3>🏆 BIP AI Talent Week 2025 — Certificate of Completion</h3>
-          <p class="muted">BIP · Roma · 11 Dicembre 2025</p>
-          <p>
-            Completion of the intensive <strong>BIP AI Talent Week</strong> program, focused on advanced
-            applications of AI and machine learning in business contexts.
-          </p>
-        </article>
-
-        <article class="card">
-          <h3>🏆 AI Week — Challenge di Classificazione</h3>
-          <p class="muted">2025</p>
-          <p>Participation in competitive classification problem challenge:</p>
-          <ul class="cert-list">
-            <li>Evaluation metric: <strong>F1-score</strong></li>
-            <li>Achieved F1-score: <strong>0.9790</strong></li>
-            <li>Final score: <strong>28.00 / 30</strong></li>
-          </ul>
-        </article>
-
-      </div>
-    </section>
-
-    <!-- CERTIFICATIONS -->
-    <section id="certifications" class="section">
-      <div class="container">
-        <h2>Certificazioni</h2>
-        
-        <h3 class="cert-category">☁️ Cloud & DevOps</h3>
-        <ul class="cert-list">
-          <li><strong>Linux Foundation</strong> — Introduction to Kubernetes (LFS158) · 2025</li>
-        </ul>
-
-        <h3 class="cert-category">🤖 Database & AI</h3>
-        <ul class="cert-list">
-          <li><strong>Neo4j</strong> — Certified Professional · 2025</li>
-          <li><strong>Federica.eu</strong> — Python Advanced Certification · 2025</li>
-        </ul>
-
-        <h3 class="cert-category">⚙️ Robotica & Automazione</h3>
-        <ul class="cert-list">
-          <li><strong>COMAU</strong> — Industrial Robotics Certification (Patentino Robotica) · 2021</li>
-        </ul>
-
-        <h3 class="cert-category">🎨 CAD & Design</h3>
-        <ul class="cert-list">
-          <li><strong>SolidWorks</strong> — CSWA (Certified SolidWorks Associate) · 2021</li>
-          <li><strong>Autodesk</strong> — AutoCAD Fundamentals · 2020</li>
-        </ul>
-
-        <h3 class="cert-category">🌐 Networking & IoT</h3>
-        <ul class="cert-list">
-          <li><strong>Cisco</strong> — Introduction to IoT · 2017</li>
-        </ul>
-
-        <h3 class="cert-category">🌍 Lingue</h3>
-        <ul class="cert-list">
-          <li><strong>Trinity College London</strong> — ISE III (C1 English Writing) · 2021</li>
-        </ul>
-
-        <h3 class="cert-category">🍎 Programmi Specialistici</h3>
-        <ul class="cert-list">
-          <li><strong>Foundation Apple Academy</strong> · Naples · 2025</li>
-        </ul>
-
-      </div>
-    </section>
-
-    <!-- LANGUAGES -->
-    <section id="languages" class="section section-alt">
-      <div class="container">
-        <h2>Lingue</h2>
-        <div class="grid lang-grid">
-          <div class="card">
-            <h3>🇮🇹 Italiano</h3>
-            <p><strong>Madrelingua</strong></p>
-          </div>
-          <div class="card">
-            <h3>🇸🇦 Arabo</h3>
-            <p><strong>Madrelingua</strong></p>
-          </div>
-          <div class="card">
-            <h3>🇬🇧 Inglese</h3>
-            <p><strong>C1</strong> — Trinity College London ISE III (certificato)</p>
-          </div>
-          <div class="card">
-            <h3>🇹🇷 Turco</h3>
-            <p><strong>A1</strong> (basic)</p>
-          </div>
-          <div class="card">
-            <h3>🇫🇷 Francese</h3>
-            <p><strong>A1</strong> (basic)</p>
-          </div>
-          <div class="card">
-            <h3>🇪🇸 Spagnolo</h3>
-            <p><strong>A1</strong> (basic)</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="section">
-      <div class="container contact-grid">
-        <div>
-          <h2>Contatti</h2>
-          <p>
-            Disponibile per collaborazioni, opportunità lavorative o progetti in
-            <strong>automazione</strong>, <strong>robotica</strong>, <strong>Edge AI</strong> e
-            <strong>sistemi embedded</strong>.
-          </p>
-        </div>
-        <div>
-          <ul class="contact-list">
-            <li>
-              <strong>📧 Email</strong>
-              <a href="mailto:azzmou31.work@gmail.com">azzmou31.work@gmail.com</a>
-            </li>
-            <li>
-              <strong>📞 Telefono</strong>
-              <a href="tel:+393517996196">+39 351 799 6196</a>
-            </li>
-            <li>
-              <strong>💼 LinkedIn</strong>
-              <a href="https://linkedin.com/in/azzeddine-m-09bb59175" target="_blank" rel="noopener noreferrer">
-                linkedin.com/in/azzeddine-m-09bb59175
-              </a>
-            </li>
-            <li>
-              <strong>🐙 GitHub</strong>
-              <a href="https://github.com/azzmou" target="_blank" rel="noopener noreferrer">
-                github.com/azzmou
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <span>© <span id="year"></span> Azzeddine Mouchtakiri</span>
-      <span aria-hidden="true">·</span>
-      <span>Automation & Robotics Engineer</span>
-      <span aria-hidden="true">·</span>
-      <span>Napoli, Italia</span>
-    </div>
+  <footer>
+    <span>Azzeddine Mouchtakiri — Berlin</span>
+    <span>Open to working-student and internship roles</span>
   </footer>
 
-  <script>
-    (function () {
-      // Anno dinamico nel footer
-      const yearEl = document.getElementById('year');
-      if (yearEl) yearEl.textContent = new Date().getFullYear();
+</div>
 
-      // Toggle menu mobile
-      const toggle = document.querySelector('.menu-toggle');
-      const mobileNav = document.getElementById('mobile-nav');
-
-      if (toggle && mobileNav) {
-        toggle.addEventListener('click', () => {
-          const expanded = toggle.getAttribute('aria-expanded') === 'true';
-          toggle.setAttribute('aria-expanded', String(!expanded));
-          mobileNav.hidden = expanded;
-        });
-      }
-
-      // Smooth scroll per anchor links
-      document.querySelectorAll('a[href^="#"]').forEach(link => {
-        link.addEventListener('click', e => {
-          const id = link.getAttribute('href');
-          if (!id || id === '#' || id === '#0') return;
-
-          const target = document.querySelector(id);
-          if (target) {
-            e.preventDefault();
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-            // Focus management per accessibilità
-            if (!target.hasAttribute('tabindex')) {
-              target.setAttribute('tabindex', '-1');
-              target.addEventListener('blur', function cleanup() {
-                target.removeAttribute('tabindex');
-                target.removeEventListener('blur', cleanup);
-              });
-            }
-            target.focus({ preventScroll: true });
-
-            // Chiudi menu mobile dopo click
-            if (mobileNav && !mobileNav.hidden) {
-              mobileNav.hidden = true;
-              if (toggle) toggle.setAttribute('aria-expanded', 'false');
-            }
-          }
-        });
-      });
-
-      // Animazione scroll reveal (opzionale)
-      const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -100px 0px'
-      };
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('in-view');
-          }
-        });
-      }, observerOptions);
-
-      document.querySelectorAll('.card, .timeline-item').forEach(el => {
-        observer.observe(el);
-      });
-    })();
-  </script>
 </body>
 </html>
